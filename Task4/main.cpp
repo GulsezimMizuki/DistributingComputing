@@ -5,6 +5,7 @@
 #include <cstdio>
 #include <cstdlib>
 #include <queue>
+#include <unistd.h>
 
 using namespace std;
 
@@ -16,7 +17,7 @@ void server(int rank, int size, int num_of_tasks) {
     queue<int> tasks;
 
     // Init tasks
-    for (int i = 0; i < num_of_tasks; i++) {
+    for (int i = 0; i < 30; i++) {
         tasks.push(i);
     }
 
@@ -50,7 +51,7 @@ void server(int rank, int size, int num_of_tasks) {
 }
 
 void exec_task(int worker_rank, int task) {
-    printf("%d: received task %d\n", worker_rank, task);
+    sleep(1);
 }
 
 void worker(int rank, int size, int server_rank) {
